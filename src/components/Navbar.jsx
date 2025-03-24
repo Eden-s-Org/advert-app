@@ -6,33 +6,42 @@ import {
   SearchIcon,
   UserPenIcon,
 } from "lucide-react";
-import myImage from "../assets/images/social.png";
+
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="flex gap-60 py-4">
-        <div className="flex gap-50">
-          <h1 className="text-blue-800 text-2xl">EdShop</h1>
-          <div className="flex items-center justify-center rounded-full  bg-gray-200 px-4 py-2">
-            <input
-              type="text"
-              placeholder="Search EdShop"
-              className="rounded-md outline-none  w-100 bg-transparent "
-            />
-            <SearchIcon size={20} color="gray" />
-          </div>
-        </div>
-        <div className="flex gap-10 px-4">
-          <HomeIcon size={24} color="black" />
-          <MegaphoneIcon size={24} color="black" />
-          <BellIcon size={24} color="black" />
-          <UserPenIcon size={24} strokeWidth={1.5} color="black" />
-        </div>
-      </div>
-      {/* <div className="">
-        <img src={myImage} alt="advert" className="brightness-50 w-full"/>
-      </div> */}
+    <div className="">
+    <nav className="top-0 left-0 w-full flex items-center justify-between bg-white shadow-md px-6 py-4">
+
+  <h1 className="text-[#424f74] text-2xl font-extrabold">EdShop</h1>
+
+ 
+  <div className="flex items-center bg-gray-200 rounded-full px-4 py-2 w-1/3">
+    <input
+      type="text"
+      placeholder="Search EdShop"
+      className="w-full bg-transparent outline-none px-2"
+    />
+    <SearchIcon size={20} color="gray" />
+  </div>
+
+ 
+  <div className="flex gap-6">
+    <a href="/" target="_blank" rel="noopener noreferrer">
+      <HomeIcon size={24} color="black" />
+    </a>
+    <a href="/adverts" target="_blank" rel="noopener noreferrer">
+      <MegaphoneIcon size={24} color="black" />
+    </a>
+    <a href="/" target="_blank" rel="noopener noreferrer">
+      <BellIcon size={24} color="black" />
+    </a>
+    <a href="/signup" target="_blank" rel="noopener noreferrer">
+      <UserPenIcon size={24} strokeWidth={1.5} color="black" />
+    </a>
+  </div>
+</nav>
+
     </div>
   );
 };
