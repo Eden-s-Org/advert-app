@@ -19,12 +19,12 @@ import { FileIcon, Home, PlusIcon, Settings, SettingsIcon, UserIcon } from "luci
 },
 {
     name:"Profile",
-    path:"/dashboard",
+    path:"/dashboard/profile",
     icon: UserIcon,
 },
 {
     name:"Settings",
-    path:"/dashboard",
+    path:"/dashboard/settings",
     icon:SettingsIcon,
 },
     ],
