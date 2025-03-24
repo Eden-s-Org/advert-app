@@ -5,12 +5,12 @@ import DashNav from "../components/DashNav";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex">
+    <div className="">
       <Sidebar />
-      <div className="ml-60 flex flex-col gap-y-4">
+      <div className="ml-60 flex flex-col">
         <DashNav />
-        <Outlet />
       </div>
+      <Outlet />
     </div>
   );
 };
