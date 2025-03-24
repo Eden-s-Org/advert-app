@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router";
+import { apiGetAllAdverts } from "../../services/adverts";
 
 const categories = [
   { 
@@ -34,8 +36,29 @@ const categories = [
 ];
 
 export default function Adverts() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchAds =async () => {
+    setIsLoading(true);
+    try{
+      const res = await apiGetAllAdverts ();
+      console.log(res);
+    }catch (error){
+      console.log(error);
+    }finally{
+      setIsLoading(false);
+    }
+  };
+
+useEffect(() => {
+  fetchAds();
+}, []); 
+
+
+
   return (
     <div className="flex flex-col h-screen">
+      
       {/* Main Content Container */}
       <div className="flex flex-1">
         {/* Left Sidebar */}
@@ -52,16 +75,19 @@ export default function Adverts() {
         <div className="flex-1 p-6 ml-64 mr-64">
           <div className="max-w-3xl w-full mx-auto">
             <h1 className="text-3xl font-bold mb-4">Explore Products</h1>
-            {categories.map((category) => (
+            {categoraies.map((category) => (
               <div key={category.name} className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">{category.name}</h2>
                 <div className="grid grid-cols-1 gap-4">
                   {category.products.map((product, index) => (
-                    <div key={index} className="bg-white p-4 rounded-lg shadow-md">
+                    // <Link to={`/adverts/:id/${category.name}/${index}`} key={index}>
+                    <div className="bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg">
                       <img src={product.image} alt={product.description} className="w-full h-60 object-cover rounded-lg" />
                       <p className="text-center mt-2 text-lg font-medium">{product.description}</p>
                       <p className="text-center text-red-600 font-semibold text-xl">{product.price}</p>
+                      <button className="bg-">View Details</button>
                     </div>
+                    // </Link>
                   ))}
                 </div>
               </div>

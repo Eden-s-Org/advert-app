@@ -2,6 +2,20 @@ import React from 'react'
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
+// const Signup = () => {
+//   const handleSubmit = async (data) => {
+  // const payload = {
+  //   firstname:data.firstname,
+  //   lastname: data.lastname,
+  // };
+// try{
+// await apiSignup(payload);
+// }catch (error) {
+// console.log(error);
+// }
+  
+// };
+
 export default function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -49,6 +63,7 @@ export default function Signup() {
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
+            <option value="Custom">Custom</option>
 
           </select>
           <input

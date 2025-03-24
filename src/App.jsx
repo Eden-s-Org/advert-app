@@ -18,10 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<RootLayout />}>
             <Route index={true} element={<Landing />} />
-            <Route path="adverts" element={<Adverts />} />
-            <Route path="averts/:id" element={<SingleAd />} />
+            
+            <Route path="adverts/:id" element={<SingleAd />} />
           </Route>
-
+          <Route path="adverts" element={<Adverts />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
