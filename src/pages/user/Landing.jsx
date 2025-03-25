@@ -1,5 +1,5 @@
 import React from "react";
-
+import landing from "../../assets/images/watch.png"
 import {
   Zap,
   Shield,
@@ -13,10 +13,10 @@ import {
 const Landing = () => {
   return (
     <div className="">
-      <div className="flex items-center justify-start min-h-screen px-6 bg-[#EEAA77]">
+      <div className="flex items-center justify-center min-h-screen mx-10 bg-white">
         <div className="max-w-2xl ps-15">
           <h1 className="text-4xl font-bold text-gray-900">
-            Boost Your Ads, Maximize Your Impact.
+          Elevate Your Advertising, Amplify Your Influence
           </h1>
           <p className="mt-4 text-lg text-gray-700">
             Effortlessly manage and optimize campaigns across platforms. Track
@@ -25,17 +25,17 @@ const Landing = () => {
           </p>
           <p className="font-bold text-[#424f74]"> Start managing smarter today!</p>
           <div className="flex gap-10 py-6">
-          <a href="adverts"  target="_blank" rel="noopener noreferrer"> <button className="bg-[#EBEAE6] py-3 px-6 rounded-e-lg font-bold">
-              Browse
+          <a href="adverts"  target="_blank" rel="noopener noreferrer"> <button className="bg-[#EEAA77] py-3 px-6 rounded-e-lg font-bold">
+              Browse Adverts
             </button></a>
             <a href="create-ad"  target="_blank" rel="noopener noreferrer"> <button className="bg-[#424f74] text-black py-3 px-6 rounded-e-lg font-bold">
-              Launch for Free
+              Create Adverts
             </button></a>
           </div>
           
         </div>
         <div className="">
-          <img src="" alt="" />
+          <img src={landing} alt="landing"  className="h-100 w-100"/>
         </div>
       </div>
       <section className="py-8 sm:py-12 md:py-16 bg-white">
@@ -114,7 +114,7 @@ const Landing = () => {
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
                   <img
-                    src="/api/placeholder/128/128"
+                    src="avatar"
                     alt="CEO portrait"
                     className="w-full h-full object-cover"
                   />
