@@ -46,7 +46,7 @@ const AdvertCard = () => {
           <div>
             <ThumbsUpIcon className="text-gray-600 mx-auto" />
             <p className="text-gray-500 text-sm">Like</p>
-          </div>
+          </div>-
           <div>
             <Share2Icon className="text-gray-600 mx-auto" />
             <p className="text-gray-500 text-sm">Share</p>

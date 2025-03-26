@@ -1,13 +1,17 @@
 import React from "react";
 import {
+  FolderKanbanIcon,
   HomeIcon,
   MegaphoneIcon,
   SearchIcon,
-  ShoppingCartIcon,
   UserPenIcon,
+  
 } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
+    const [hover, setHover] = useState(false);
+  
   return (
     <div className="">
       <nav className="fixed top-0 left-0 w-full flex items-center justify-between bg-white shadow-md px-6 py-4 z-40">
@@ -22,23 +26,48 @@ const Navbar = () => {
           <SearchIcon className="w-4 h-4 md:w-5 md:h-5 text-gray-500" />
         </div>
 
-        <div className="flex gap-6">
-          <a href="/" target="_blank" rel="noopener noreferrer">
+        <div className="flex gap-15"
+           onMouseEnter={() => setHover(true)}
+           onMouseLeave={() => setHover(false)}
+        >
+    
+          <a href="/">
             <HomeIcon size={24} color="black" />
+            {hover && (
+        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
+          Home
+        </div>
+      )}
           </a>
           <a href="/adverts" target="_blank" rel="noopener noreferrer">
             <MegaphoneIcon size={24} color="black" />
+            {hover && (
+        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
+          Adverts
+        </div>
+      )}
           </a>
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            <ShoppingCartIcon size={24} color="black" />
+          <a href="/adverts/signup" target="_blank" rel="noopener noreferrer">
+            <FolderKanbanIcon size={24} color="black" />
+            {hover && (
+        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
+          Create Ad
+        </div>
+      )}
           </a>
           <a href="/signup" target="_blank" rel="noopener noreferrer">
             <UserPenIcon size={24} strokeWidth={1.5} color="black" />
+            {hover && (
+        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
+          SignUp
+        </div>
+      )}
           </a>
         </div>
       </nav>
     </div>
   );
 };
+
 
 export default Navbar;

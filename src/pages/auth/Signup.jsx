@@ -54,6 +54,7 @@ export default function Signup() {
             className="w-full p-2 border rounded"
             required
           />
+          
           <select
             value={gender}
             onChange={(e) => setGender(e.target.value)}

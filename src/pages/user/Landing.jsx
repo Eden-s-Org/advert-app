@@ -142,7 +142,7 @@ const Landing = () => {
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
                   <img
-                    src="/api/placeholder/128/128"
+                    src=""
                     alt="CTO portrait"
                     className="w-full h-full object-cover"
                   />
@@ -168,7 +168,7 @@ const Landing = () => {
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
                   <img
-                    src="/api/placeholder/128/128"
+                    src=""
                     alt="COO portrait"
                     className="w-full h-full object-cover"
                   />
@@ -194,7 +194,7 @@ const Landing = () => {
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
                   <img
-                    src="/api/placeholder/128/128"
+                    src=""
                     alt="CPO portrait"
                     className="w-full h-full object-cover"
                   />
