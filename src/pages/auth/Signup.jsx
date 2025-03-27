@@ -1,32 +1,34 @@
-import React from 'react'
-import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
 
 // const Signup = () => {
 //   const handleSubmit = async (data) => {
-  // const payload = {
-  //   firstname:data.firstname,
-  //   lastname: data.lastname,
-  // };
+// const payload = {
+//   firstname:data.firstname,
+//   lastname: data.lastname,
+// };
 // try{
 // await apiSignup(payload);
 // }catch (error) {
 // console.log(error);
 // }
-  
+
 // };
 
-export default function Signup() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function SignupPage() {
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    if (firstName && lastName && gender && email && password) {
+    const form = e.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const username = form.username.value;
+    const gender = form.gender.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (firstName && lastName && username && gender && email && password) {
       navigate("/login");
     } else {
       alert("Please fill all fields");
@@ -40,49 +42,71 @@ export default function Signup() {
         <form className="space-y-4 mt-4" onSubmit={handleSignup}>
           <input
             type="text"
+            name="firstName"
             placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
           <input
             type="text"
+            name="lastName"
             placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
-          <select
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
             className="w-full p-2 border rounded"
             required
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Custom">Custom</option>
-
-          </select>
+          />
+          <div className="relative">
+            <select
+              name="gender"
+              className="w-full p-2 border rounded"
+              required
+              onMouseOver={(e) => {
+                const option = e.target.options[e.target.selectedIndex];
+                const tooltip = document.getElementById("tooltip-custom");
+                if (option.value === "Custom" && tooltip)
+                  tooltip.style.display = "block";
+              }}
+              onMouseOut={() => {
+                const tooltip = document.getElementById("tooltip-custom");
+                if (tooltip) tooltip.style.display = "none";
+              }}
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Custom">Custom</option>
+            </select>
+            <div
+              id="tooltip-custom"
+              className="absolute top-full left-0 mt-1 hidden bg-black text-white text-xs px-2 py-1 rounded shadow z-10"
+            >
+              Are you a business or a company?
+            </div>
+          </div>
           <input
             type="email"
+            name="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
           <input
             type="password"
+            name="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+          >
             Sign Up
           </button>
         </form>
