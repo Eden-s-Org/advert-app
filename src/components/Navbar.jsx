@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FolderKanbanIcon,
   HomeIcon,
   MegaphoneIcon,
+  ViewIcon,
   SearchIcon,
-  UserPenIcon,
   
 } from "lucide-react";
-import { useState } from "react";
 
 const Navbar = () => {
-    const [hover, setHover] = useState(false);
-  
+
+  const [hoveredItem, setHoveredItem] = useState(null);
+
   return (
-    <div className="">
+    <div>
       <nav className="fixed top-0 left-0 w-full flex items-center justify-between bg-white shadow-md px-6 py-4 z-40">
         <h1 className="text-[#424f74] text-2xl font-extrabold">EdShop</h1>
 
@@ -26,48 +26,74 @@ const Navbar = () => {
           <SearchIcon className="w-4 h-4 md:w-5 md:h-5 text-gray-500" />
         </div>
 
-        <div className="flex gap-15"
-           onMouseEnter={() => setHover(true)}
-           onMouseLeave={() => setHover(false)}
-        >
-    
-          <a href="/">
-            <HomeIcon size={24} color="black" />
-            {hover && (
-        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
-          Home
-        </div>
-      )}
-          </a>
-          <a href="/adverts" target="_blank" rel="noopener noreferrer">
-            <MegaphoneIcon size={24} color="black" />
-            {hover && (
-        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
-          Adverts
-        </div>
-      )}
-          </a>
-          <a href="/adverts/signup" target="_blank" rel="noopener noreferrer">
-            <FolderKanbanIcon size={24} color="black" />
-            {hover && (
-        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
-          Create Ad
-        </div>
-      )}
-          </a>
-          <a href="/signup" target="_blank" rel="noopener noreferrer">
-            <UserPenIcon size={24} strokeWidth={1.5} color="black" />
-            {hover && (
-        <div className="absolute mt-1 bg-black text-white text-xs py-1 px-2 rounded-lg">
-          SignUp
-        </div>
-      )}
-          </a>
+        <div className="flex gap-6 relative">
+          
+          <div
+            className="relative flex flex-col items-center"
+            onMouseEnter={() => setHoveredItem("home")}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <a href="/" target="" rel="">
+              <HomeIcon size={24} color="black" />
+            </a>
+            {hoveredItem === "home" && (
+              <span className="absolute top-8 bg-black text-white text-xs py-1 px-2 rounded-lg">
+                Home
+              </span>
+            )}
+          </div>
+
+       
+          <div
+            className="relative flex flex-col items-center"
+            onMouseEnter={() => setHoveredItem("adverts")}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <a href="/signup" target="" rel="">
+              <MegaphoneIcon size={24} color="black" />
+            </a>
+            {hoveredItem === "adverts" && (
+              <span className="absolute top-8 bg-black text-white text-xs py-1 px-2 rounded-lg">
+                Adverts
+              </span>
+            )}
+          </div>
+
+         
+          <div
+            className="relative flex flex-col items-center"
+            onMouseEnter={() => setHoveredItem("folder")}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <a href="/signup" target="_blank" rel="noopener noreferrer">
+              <FolderKanbanIcon size={24} color="black" />
+            </a>
+            {hoveredItem === "folder" && (
+              <span className="absolute top-8 bg-black text-white text-xs py-1 px-2 rounded-lg">
+                Create Your Ad
+              </span>
+            )}
+          </div>
+
+        
+          <div
+            className="relative flex flex-col items-center"
+            onMouseEnter={() => setHoveredItem("signup")}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <a href="/signup" target="_blank" rel="noopener noreferrer">
+              <ViewIcon size={24} strokeWidth={1.5} color="black" />
+            </a>
+            {hoveredItem === "signup" && (
+              <span className="absolute top-8 bg-black text-white text-xs py-1 px-2 rounded-lg">
+               View All Adds
+              </span>
+            )}
+          </div>
         </div>
       </nav>
     </div>
   );
 };
-
 
 export default Navbar;
