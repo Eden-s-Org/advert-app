@@ -11,6 +11,7 @@ import Overview from "./pages/dashboard/Overview";
 import CreateAd from "./pages/dashboard/CreateAd";
 import VendorAds from "./pages/dashboard/VendorAds";
 import Profile from "./pages/dashboard/Profile";
+import SingleVendorAdvert from "./pages/dashboard/SingleVendorAdvert";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route index={true} element={<Overview />} />
             <Route path="create-ad" element={<CreateAd />} />
             <Route path="ads" element={<VendorAds/>} />
+            <Route path="ads/:id" element={<SingleVendorAdvert/>} />
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>

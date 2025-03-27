@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import Image from '../../assets/images/social.png'
-import { CalendarClock, Camera, ChevronDown, CircleFadingPlus, Clapperboard, CopyPlus, Facebook, InstagramIcon } from 'lucide-react'
+import { CalendarClock, Camera, ChevronDown, CircleFadingPlus, Clapperboard, CopyPlus, Facebook, InstagramIcon, Link } from 'lucide-react'
 
 const Overview = () => {
   return (
@@ -45,8 +45,10 @@ const Overview = () => {
               <h3 className='text-white font-bold '>Create advert</h3>
             </div>
             <div className='w-1/5 flex items-center justify-center gap-x-2 bg-transparent border border-gray-500 p-2 rounded-md cursor-pointer hover:bg-gray-400'>
+            <Link to={'/create-ad'}>
               <Clapperboard className='size-5 text-black'/>
               <h3 className='text-black/90 text-sm'>Create reel</h3>
+            </Link>
             </div>
             <div className='w-1/5 flex items-center justify-center gap-x-2 bg-transparent border border-gray-500 p-2 rounded-md cursor-pointer hover:bg-gray-400'>
               <CircleFadingPlus className='size-5 text-black'/>
