@@ -54,6 +54,7 @@ export default function SignupPage() {
             className="w-full p-2 border rounded"
             required
           />
+          
           <input
             type="text"
             name="username"
