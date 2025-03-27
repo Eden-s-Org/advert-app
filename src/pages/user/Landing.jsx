@@ -1,5 +1,6 @@
 import React from "react";
 import landing from "../../assets/images/watch.png"
+import icon from "../../assets/images/icon.png"
 import {
   Zap,
   Shield,
@@ -9,6 +10,7 @@ import {
   Twitter,
   LinkedinIcon,
 } from "lucide-react";
+import AdvertCard from "../../components/AdvertCard";
 
 const Landing = () => {
   return (
@@ -25,10 +27,10 @@ const Landing = () => {
           </p>
           <p className="font-bold text-[#424f74]"> Start managing smarter today!</p>
           <div className="flex gap-10 py-6">
-          <a href="adverts"  target="_blank" rel="noopener noreferrer"> <button className="bg-[#EEAA77] py-3 px-6 rounded-e-lg font-bold">
+          <a href="/signup"  target="" rel=""> <button className="bg-[#EEAA77] py-3 px-6 rounded-e-lg font-bold">
               Browse Adverts
             </button></a>
-            <a href="create-ad"  target="_blank" rel="noopener noreferrer"> <button className="bg-[#424f74] text-black py-3 px-6 rounded-e-lg font-bold">
+            <a href="/signup"  target="" rel=""> <button className="bg-[#424f74] text-black py-3 px-6 rounded-e-lg font-bold">
               Create Adverts
             </button></a>
           </div>
@@ -41,7 +43,7 @@ const Landing = () => {
       <section className="py-8 sm:py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 sm:mb-16">
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8 text-center">
+            <h3  className="mt-12 text-3xl font-extrabold text-gray-900 tracking-wide border-b-4 border-[#424f74] pb-2 mb-6">
               Our Core Values
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
@@ -84,6 +86,26 @@ const Landing = () => {
               </div>
             </div>
           </div>
+          <div className="mt-10">
+ 
+  <h2 className="text-3xl font-extrabold text-gray-900 tracking-wide border-b-4 border-[#424f74] pb-2 mb-6">
+    Featured Ads
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
+  <AdvertCard />
+  <AdvertCard />
+</div>
+
+
+  <h2 className="mt-12 text-3xl font-extrabold text-gray-900 tracking-wide border-b-4 border-[#424f74] pb-2 mb-6">
+    Trending Ads
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
+  <AdvertCard />
+  <AdvertCard />
+</div>
+</div>
+
 
     <section className="bg-gray-50">    
   <div className="py-12 px-4 max-w-7xl mx-auto ">
@@ -107,14 +129,14 @@ const Landing = () => {
   </section>
 
           <div className="py-16">
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8 text-center">
+            <h3  className="mt-12 text-3xl font-extrabold text-gray-900 tracking-wide border-b-4 border-[#424f74] pb-2 mb-6">
               Meet Our Leadership
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
                   <img
-                    src="avatar"
+                    src={icon}
                     alt="CEO portrait"
                     className="w-full h-full object-cover"
                   />
@@ -141,9 +163,9 @@ const Landing = () => {
 
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
-                  <img
-                    src=""
-                    alt="CTO portrait"
+                <img
+                    src={icon}
+                    alt="CEO portrait"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -167,9 +189,9 @@ const Landing = () => {
 
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
-                  <img
-                    src=""
-                    alt="COO portrait"
+                <img
+                    src={icon}
+                    alt="CEO portrait"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -193,9 +215,9 @@ const Landing = () => {
 
               <div className="text-center">
                 <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3 sm:mb-4 overflow-hidden rounded-full">
-                  <img
-                    src=""
-                    alt="CPO portrait"
+                <img
+                    src={icon}
+                    alt="CEO portrait"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -222,7 +244,7 @@ const Landing = () => {
 
 
           <div className="mt-12 sm:mt-16 text-center">
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+            <h3  className="mt-12 text-3xl font-extrabold text-gray-900 tracking-wide border-b-4 border-[#424f74] pb-2 mb-6">
               Join Our Growing Team
             </h3>
             <p className="text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
