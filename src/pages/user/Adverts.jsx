@@ -7,15 +7,16 @@ import SponserSidebar from "../../components/SponserSidebar";
 import { useLocation } from "react-router";
 
 export default function Adverts() {
+  const [ads, setAds] = useState([]);
 
   const fetchAds = async () => {
-    
     try {
       const response = await apiGetAllAdverts();
-      fetchAds(response.data.advert);
+      // setAds(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
-    } 
+    }
   };
 
   useEffect(() => {

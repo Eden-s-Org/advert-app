@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 // const Signup = () => {
 //   const handleSubmit = async (data) => {
@@ -54,7 +54,7 @@ export default function SignupPage() {
             className="w-full p-2 border rounded"
             required
           />
-          
+
           <input
             type="text"
             name="username"
@@ -83,6 +83,9 @@ export default function SignupPage() {
               <option value="Female">Female</option>
               <option value="Custom">Custom</option>
             </select>
+
+           
+
             <div
               id="tooltip-custom"
               className="absolute top-full left-0 mt-1 hidden bg-black text-white text-xs px-2 py-1 rounded shadow z-10"
@@ -90,6 +93,14 @@ export default function SignupPage() {
               Are you a business or a company?
             </div>
           </div>
+          <select name="role" 
+          className="w-full p-2 border rounded"
+          required>
+          <option value="">Select Role</option>
+              <option value="Vendor">Vendor</option>
+              <option value="User">User</option>
+          </select>
+           
           <input
             type="email"
             name="email"
@@ -111,6 +122,12 @@ export default function SignupPage() {
             Sign Up
           </button>
         </form>
+        <Link to="/login" className=" flex justify-center mt-3 font-semibold">
+          <p>
+            Already have an account:{" "}
+            <span className="text-blue-600 underline font-bold">Login</span>
+          </p>
+        </Link>
       </div>
     </div>
   );
