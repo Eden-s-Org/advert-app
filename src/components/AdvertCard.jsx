@@ -10,7 +10,6 @@ import {
 import React from "react";
 import social from "../assets/images/social.png"
 import iphone from "../assets/images/iphone.png"
-
 const AdvertCard = ({ advert }) => {
   
 
@@ -48,7 +47,8 @@ const AdvertCard = ({ advert }) => {
             <p className="text-gray-500 text-sm">Share</p>
           </div>
           <button className="px-4 py-2 bg-[#EEAA77] hover:bg-orange-400 text-white font-bold rounded-lg transition duration-300 shadow-md">
-            View Details
+          View Details
+        
           </button>
         </div>
       </div>
