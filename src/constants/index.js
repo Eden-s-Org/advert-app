@@ -1,4 +1,4 @@
-import { ChartNoAxesCombined, FileIcon, Home, PlusIcon, Settings, SettingsIcon, UserIcon } from "lucide-react";
+import { BookOpenCheck, ChartNoAxesCombined, FileIcon, Home, PlusIcon, Settings, SettingsIcon, UserIcon } from "lucide-react";
 
   export default{
     NAVLINKS:[
@@ -16,6 +16,11 @@ import { ChartNoAxesCombined, FileIcon, Home, PlusIcon, Settings, SettingsIcon, 
     name:"Vendor Ads",
     path:"/dashboard/ads",
     icon: FileIcon,
+},
+{
+    name:"To-Do List",
+    path:"/dashboard/to-do",
+    icon: BookOpenCheck,
 },
 {
     name:"Analytics",
