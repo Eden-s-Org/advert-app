@@ -30,7 +30,7 @@ const AdvertCard = ({ advert }) => {
         </div>
 
         <div className="w-full h-64 sm:h-72 md:h-80 lg:h-96 flex justify-center items-center relative mt-4">
-          <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.userId.media}/iqypzlepxsitjgp1bw8j.webp`} alt={advert?.title} className="h-full object-cover rounded-lg shadow-md" />
+          <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}`} alt={advert?.title} className="h-full object-cover rounded-lg shadow-md" />
           <span className="absolute bottom-5 right-5 bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-full shadow-lg">
             GHC200
           </span>

@@ -19,4 +19,4 @@ export const apiUpdateAdvert = async (id, payload) =>
 export const apiUpdatingAdvert = async (id, payload) =>
   apiClient.put(`/advert/${id}, payload`);
 
-export const apiGetSingleAdvert = async () => apiClient.get(`/advert/${id}`);
+export const apiGetSingleAdvert = async (id) => apiClient.get(`/advert/${id}`);

@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col w-60 gap-6 bg-[#EEAA77] h-screen px-2 py-5 fixed left-0 top-0">
+    <div className="flex flex-col w-60 gap-6 z-50 bg-[#EEAA77] h-screen px-2 py-5 fixed left-0 top-0">
       <span className=" text-4xl font-extrabold tracking-wide text-white flex justify-center font-mono"> 
   Ed<span className="text-blue-950 italic">Shop</span>
 </span>
