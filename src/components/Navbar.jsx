@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="relative flex items-center bg-gray-200 rounded-full px-3 py-2 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
           <input
             type="text"
-            placeholder="Search ads..."
+            placeholder="Search EdShop.."
             value={searchTerm}
             onInput={(e) => setSearchTerm(e.target.value)}
             className="w-full bg-transparent outline-none px-2 text-sm md:text-base"

@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { apiLogin } from "../../services/auth";
+import axios from "axios";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState(""); // username or email
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (email && password) {
+    if (identifier && password) {
       try {
-        const userData = { email, password };
-        const response = await apiLogin(userData);
+        const userData = {
+          usernameOrEmail: identifier,
+          password,
+        };
+        const response = await axios.post(
+          "https://advertising-api-1x6a.onrender.com/api/login",
+          userData
+        );
 
         localStorage.setItem("token", response.data.accessToken);
         localStorage.setItem("role", response.data.user.role);
@@ -38,10 +44,10 @@ export default function LoginPage() {
         <h2 className="text-center text-xl font-bold">Login</h2>
         <form className="space-y-4 mt-4" onSubmit={handleLogin}>
           <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Username or Email"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
