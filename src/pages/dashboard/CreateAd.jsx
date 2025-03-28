@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import DashNav from "../../components/DashNav";
 import VendorAdvertCard from '../../components/VendorAdvertCard';
 import { apiAddAdvert } from '../../services/adverts';
+import { useNavigate } from 'react-router';
 
 const CreateAd = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,6 +13,7 @@ const CreateAd = () => {
   const [price, setPrice] = useState();
   const [description, setDescription] = useState();
   const [likes, setLikes] = useState(0);
+  const navigate = useNavigate();
 
 
   const handleSubmit = async (event) => {
@@ -21,6 +23,7 @@ const CreateAd = () => {
   try {
     const response = await apiAddAdvert(formData); // Make sure this function exists
     console.log("Advert posted successfully", response);
+    navigate("/dashboard/ads")
   } catch (error) {
     console.log("Error submitting advert:", error);
   }

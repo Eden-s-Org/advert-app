@@ -10,7 +10,7 @@ const VendorAdvertCard = ({ advert}) => {
             <div className='bg-gray-100 shadow-xl rounded-xl  py-4 flex flex-col gap-y-3 hover:scale-105 transition-transform hover:shadow-xl hover:shodow-blue-950 overflow-hidden'>
                 <div className='flex items-center gap-x-3 w-[95%] mx-auto '>
                     <div className='h-15 w-15 rounded-full bg-[#EEAA77]'>
-                    <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}/iqypzlepxsitjgp1bw8j.webp`} alt={advert?.title} className=' h-15 w-15 rounded-full bg-[#EEAA77]' />
+                    <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}`} alt={advert?.title} className=' h-15 w-15 rounded-full bg-[#EEAA77]' />
                     </div>
                     <div>
                         <h2 className='font-bold text-[#424f74]'>YoushareLedge</h2>
@@ -26,7 +26,7 @@ const VendorAdvertCard = ({ advert}) => {
                 </div>
 
                 <div className='w-[100%] bg-gray-300 relative '>
-                    <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}/iqypzlepxsitjgp1bw8j.webp`} alt={advert?.title} className='w-[100%] h-80 hover:scale-105' /> 
+                    <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}`} alt={advert?.title} className='w-[100%] h-80 hover:scale-105' /> 
                     <div className=' absolute bottom-8 right-8 flex justify-center items-center'>
                         <span className=' text-center font-bold text-lg bg-gray-800 text-white  py-2 px-6 rounded-full shadow-lg'>Ghc <br/> {advert?.price}</span>
                     </div>
