@@ -4,22 +4,6 @@ import { apiGetSingleAdvert } from '../../services/adverts';
 import Sidebar from '../../components/Sidebar';
 
 const SingleVendorAdvert = () => {
-    const { id} =useParams();
-
-    const [advert, setAdvert] = useState(null)
-
-    const getAdvert = async () => {
-        try {
-            const response = await apiGetSingleAdvert();
-setAdvert(response.data.advert);
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        getAdvert(); 
-    }, []);
 
 
     
