@@ -32,7 +32,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index={true} element={<Overview />} />
             <Route path="create-ad" element={<CreateAd />} />
-            <Route path="edit-ad/:id" element={<EditAdvert />} />
+            <Route path="edit/:id" element={<EditAdvert />} />
             <Route path="ads" element={<VendorAds/>} />
             <Route path="to-do" element={<ToDoList/>} />
             <Route path="ads/:id" element={<SingleVendorAdvert/>} />

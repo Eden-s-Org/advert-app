@@ -24,14 +24,15 @@ export default function SignupPage() {
     const form = e.target;
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
-    const username = form.username.value;
+    const userName = form.userName.value;
     const gender = form.gender.value;
     const email = form.email.value;
     const role = form.role.value;
+    const confirmPassword = form.confirmPassword.value;
     const password = form.password.value;
-console.log(email)
-    if (firstName && lastName && username && gender && email && password) {
-     const userData = {firstName , lastName , username , gender , email, role , password}
+    console.log(email)
+    if (firstName && lastName && userName && gender && email && password && confirmPassword) {
+     const userData = {firstName , lastName , userName , gender , email, role , password, confirmPassword}
       const response = await apiSignup (userData)
       if (response.data) {
       console.log(response.data);
@@ -65,8 +66,8 @@ console.log(email)
 
           <input
             type="text"
-            name="username"
-            placeholder="Username"
+            name="userName"
+            placeholder="userName"
             className="w-full p-2 border rounded"
             required
           />
@@ -120,6 +121,13 @@ console.log(email)
             type="password"
             name="password"
             placeholder="Password"
+            className="w-full p-2 border rounded"
+            required
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
             className="w-full p-2 border rounded"
             required
           />
