@@ -1,11 +1,13 @@
 import React from "react";
 import K from "../constants";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col w-60 gap-6 bg-purple-500 h-screen px-2 py-5 fixed left-0 top-0">
-      <span className="mt-3">Logo Here</span>
+    <div className="flex flex-col w-60 gap-6 bg-[#EEAA77] h-screen px-2 py-5 fixed left-0 top-0">
+      <span className=" text-4xl font-extrabold tracking-wide text-white flex justify-center font-mono"> 
+  Ed<span className="text-blue-950 italic">Shop</span>
+</span>
       <div className="flex flex-col gap-y-6">
         {K.NAVLINKS.map((link, index) => {
           return (
@@ -26,7 +28,7 @@ const Sidebar = () => {
           );
         })}
       </div>
-      <button className="bg-white mt-auto">Logout</button>
+      <Link to={'/'} className="text-blue-950 bg-white hover:bg-[#424f74] hover:text-white px-3 py-2 w-full rounded-md flex justify-center">Logout</Link>
     </div>
   );
 };

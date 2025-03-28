@@ -3,59 +3,17 @@ import { useParams } from "react-router";
 import axios from "axios";
 import Sidebar from "../../components/Sidebar";
 
-// const SingleVendorAdvert = () => {
-//     const { id} =useParams();
 
-//     const [advert, setAdvert] = useState({})
+    const [advert, setAdvert] = useState(null)
 
-//     const getAdvert = async () => {
-//         try {
-//             const response = await apiGetSingleAdvert(id);
-// setAdvert(response.data);
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-
-//     useEffect(() => {
-//         getAdvert();
-//     }, []);
-//   return (
-//     <>
-//     <Sidebar/>
-//     <div>SingleVendorAdvert</div>
-//     </>
-//   )
-// }
-
-export default function SingleVendorAdvert() {
-  const { id } = useParams();
-  const [advert, setAdvert] = useState(null);
-
-  useEffect(() => {
-    const fetchAdvert = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/api/adverts/${id}`
-        );
-        setAdvert(response.data);
-
-        // Just showing how to use getElementById
-        setTimeout(() => {
-          const heading = document.getElementById("advert-title");
-          if (heading) heading.style.color = "blue";
-        }, 200);
-      } catch (error) {
-        alert(
-          "Failed to fetch advert: " +
-            (error.response?.data?.message || error.message)
-        );
-      }
-    };
-    fetchAdvert();
-  }, [id]);
-
-  if (!advert) return <p className="text-center p-6">Loading...</p>;
+    const getAdvert = async () => {
+        try {
+            const response = await apiGetSingleAdvert();
+setAdvert(response.data.advert);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
   return (
     <>
