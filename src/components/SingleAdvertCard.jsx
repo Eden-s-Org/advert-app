@@ -2,22 +2,23 @@ import { ArrowLeft, Star, X } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router'
 import Navbar from './Navbar'
+import { apiDeleteAdvert } from '../services/adverts'
 
 const SingleAdvertCard = ({advert, onDelete}) => {
     console.log(advert)
 // Function to handle delete
 const handleDelete = async () => {
-    const confirmDelete = window.confirm(`Are you sure you want to delete "${book?.title}"?`);
+    const confirmDelete = window.confirm(`Are you sure you want to delete "${advert?.title}"?`);
     if (confirmDelete) {
         try {
-            await axios.delete(`https://library-api-t61c.onrender.com/library/${book?.id}`);
-            alert("Book deleted successfully!");
+            await apiDeleteAdvert(advert?.id);
+            alert("Advert deleted successfully!");
             if (onDelete) {
-                onDelete(book?.id); // Update parent state after deletion
+                onDelete(advert?.id); // Update parent state after deletion
             }
         } catch (error) {
-            console.error("Error deleting book:", error);
-            alert("Failed to delete book. Please try again.");
+            console.error("Error deleting advert:", error);
+            alert("Failed to delete advert. Please try again.");
         }
     }
 };
@@ -51,9 +52,8 @@ const handleDelete = async () => {
                             <div className="text-blue-950 ml-5 font-semibold">3.8 Ratings</div>
                         </div>
 
-                        <div class="flex">
-                            <div class="border border-blue-950 my-1 md:my-5 w-[60px] "></div>
-                            <h2 class="text-blue-950 mx-4 md:mx-4 font-bold">ABOUT BOOK</h2>
+                        <div >
+                            <h2 class="text-blue-950 mx-auto md:mx-2 font-bold">Ghc {advert.price}</h2>
                         </div>
 
                         <div class="mb-5 w-[90%] text-blue-950">
@@ -63,13 +63,13 @@ const handleDelete = async () => {
                         <div className="flex justify-end items-center mt-5 w-[90%] gap-5 relative">
 
                             <div class=" flex">
-                                <Link to={`/edit/${advert.id}`}
+                                <Link to={`/dashboard/edit/${advert.id}`}
                                     class="items-end bg-gradient-to-r from-[#056d80] from-10% to-blue-950 to-90% hover:bg-gradient-to-l px-10 py-3 rounded-lg text-white text-center hover:font-extrabold ml-auto mb-5">Edit</Link>
                             </div>
 
                             <div class=" flex ">
-                                <Link onClick={handleDelete} to={'/allbooks'}
-                                    class=" bg-red-600/60 hover:bg-red-600 px-7 py-3 rounded-lg text-white text-center hover:font-extrabold ml-auto mb-5">Delete</Link>
+                                <button onClick={handleDelete} to={'/dashboard/ads'}
+                                    class=" bg-red-600/60 hover:bg-red-600 px-7 py-3 rounded-lg text-white text-center hover:font-extrabold ml-auto mb-5">Delete</button>
                             </div>
                         </div>
 
