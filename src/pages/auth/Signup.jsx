@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
+import { apiSignup } from "../../services/auth";
 
 // const Signup = () => {
 //   const handleSubmit = async (data) => {
@@ -18,7 +19,7 @@ import { Link, useNavigate } from "react-router";
 export default function SignupPage() {
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
@@ -27,9 +28,15 @@ export default function SignupPage() {
     const gender = form.gender.value;
     const email = form.email.value;
     const password = form.password.value;
-
+console.log(email)
     if (firstName && lastName && username && gender && email && password) {
-      navigate("/login");
+     const userData = {firstName , lastName , username , gender , email, role: "customer" , password}
+      const response = await apiSignup (userData)
+      if (response.data) {
+      console.log(response.data);
+        navigate("/login");
+      
+      }
     } else {
       alert("Please fill all fields");
     }

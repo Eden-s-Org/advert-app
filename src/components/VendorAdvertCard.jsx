@@ -1,9 +1,11 @@
 import { EarthIcon, MessageCircle, Share2, ThumbsUp } from 'lucide-react'
 import React from 'react'
+import { Link } from 'react-router'
 
 const VendorAdvertCard = () => {
     return (
         <>
+        
             <div className='bg-gray-100 shadow-xl rounded-xl  py-4 flex flex-col gap-y-3 hover:scale-105 transition-transform hover:shadow-xl hover:shodow-blue-950 overflow-hidden'>
                 <div className='flex items-center gap-x-3 w-[95%] mx-auto '>
                     <div className='h-15 w-15 rounded-full bg-[#EEAA77]'>
@@ -43,7 +45,11 @@ const VendorAdvertCard = () => {
                     </span>
 
                 </div>
+                <div className='flex'>
+                        <Link to={`ads/`} className=" bg-gradient-to-r from-[#056d80] from-10% to-blue-950 to-90% hover:bg-gradient-to-l px-5 py-2 rounded-lg text-white text-center hover:font-extrabold w-[100%]">View More Detail</Link>
+                    </div>
             </div>
+            
         </>
     )
 }

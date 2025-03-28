@@ -1,21 +1,33 @@
 import React from 'react'
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { apiLogin } from '../../services/auth';
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (email && password) {
-      navigate("/vendor");
+      const userData = { email, password }
+      const response = await apiLogin(userData)
+
+      localStorage.setItem("token", response.data.accessToken)
+      localStorage.setItem("role", response.data.user.role)
+      if (response.data.user.role === "customer") {
+        console.log(response.data)
+        navigate("/adverts");
+
+      } else { navigate("/dashboard"); }
     } else {
+
       alert("Please enter valid credentials");
     }
-  };
 
+
+  }
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
       <div className="bg-white p-6 rounded shadow w-full max-w-sm">
