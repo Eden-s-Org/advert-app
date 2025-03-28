@@ -2,6 +2,7 @@ import { ChevronDown, ImagePlusIcon, EarthIcon, MessageCircle, Share2, ThumbsUp,
 import React, { useState } from 'react'
 import DashNav from "../../components/DashNav";
 import VendorAdvertCard from '../../components/VendorAdvertCard';
+import { apiAddAdvert } from '../../services/adverts';
 
 const CreateAd = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -15,12 +16,14 @@ const CreateAd = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // const formData = new FormData(event.target);
-    // try {
-    //   const response = await apiAddAdvert()
-    // } catch (error) {
-    //   console.log(response)
-    // }
+    const formData = new FormData(event.target);
+
+  try {
+    const response = await apiAddAdvert(formData); // Make sure this function exists
+    console.log("Advert posted successfully", response);
+  } catch (error) {
+    console.log("Error submitting advert:", error);
+  }
   }
 
   // const handleFileUpload = () => {
@@ -38,7 +41,7 @@ const CreateAd = () => {
               <h1 className='font-bold '>Post to</h1>
             </div>
 
-            <div className=' bg-red-400 w-[95%] mx-auto flex border p-2 rounded-md items-center'>
+            <div className=' w-[95%] mx-auto flex border p-2 rounded-md items-center'>
               <div className='bg-gray-500 w-8 h-8 border rounded-full mr-2'></div>
               <h1 className='font-bold '>Post to</h1>
             </div>
@@ -54,7 +57,7 @@ const CreateAd = () => {
                 <p>Share photo or a video of your advert. EdAdvert App posts can't exceed 10 photos.</p>
               </div>
 
-              <div className=' bg-red-400 w-[95%] mx-auto flex p-2 items-center gap-4'>
+              <div className=' w-[95%] mx-auto flex p-2 items-center gap-4'>
                 <div className='border border-gray-500 py-2 px-3 rounded-md'>
 
                   <label htmlFor='advertImage' className='flex gap-x-2 items-center hover:cursor-pointer'>
@@ -124,7 +127,7 @@ const CreateAd = () => {
 
             <div className='w-[79.5%] fixed bg-white rounded-md p-3 bottom-3 z-10 flex justify-end gap-x-3'>
               <button className=" bg-transparent  px-2 py-2 rounded-md text-black/70 text-center border border-gray-400 hover:bg-gray-200" disabled>Finish Later</button>
-              <button type="submit" className=" bg-[#424f74] hover:bg-blue-950 px-5 py-2 rounded-md text-white text-center font-bold cursor-pointer">Publish to EdenAdverts</button>
+              <button type="submit" className=" bg-[#424f74] hover:bg-blue-950 px-5 py-2 rounded-md text-white text-center font-bold cursor-pointer" >Publish to EdenAdverts</button>
             </div>
           </form>
 
@@ -164,9 +167,9 @@ const CreateAd = () => {
         </section>
 
         {/* SideSection */}
-        <section className='w-[40%] bg-red-200 mr-4.5 mt-5.5 '>
-          <div className='fixed bg-gray-200 mt-4 w-[100%]'>
-            <div className='flex justify-between'>
+        <section className='relative w-[40%] bg-gray-200 mr-4.5 mt-5.5 '>
+          <div className=' bg-gray-200 mt-4 w-90 scroll-auto'>
+            <div className='flex justify-between mb-5'>
               <div className='flex border border-gray-400 bg-white p-2 rounded-md hover:bg-gray-300 cursor-default'>
                 <p>EdenAds Feed preview </p>
                 <ChevronDown />
@@ -181,11 +184,11 @@ const CreateAd = () => {
 
 
 
-            <div>
+            <div className='h-30 relative'>
               <div className='bg-gray-100 shadow-xl rounded-xl  py-4 flex flex-col gap-y-3'>
                 <div className='flex items-center gap-x-3 w-[95%] mx-auto '>
                   <div className='h-15 w-15 rounded-full bg-[#EEAA77]'>
-                    {/* <h1>Profile Image</h1> */}
+                    <img src={image} alt="" className='h-15 w-15 rounded-full' />
                   </div>
                   <div>
                     <h2 className='font-bold text-[#424f74]'>YoushareLedge</h2>
@@ -201,10 +204,10 @@ const CreateAd = () => {
                 </div>
 
                 <div className='w-[100%] bg-gray-500 relative '>
-                  {image}
-                  <img src="#" alt="" className='w-[100%] h-80' />
-                  <div className='h-20 w-20 rounded-full bg-red-700/90 border-4 border-white absolute bottom-8 right-8 flex justify-center items-center'>
-                    <p className='text-[#EEAA77] text-center font-bold text-lg'>Ghc <br /> {price}</p>
+              
+                  <img src={image} alt="" className='w-[100%] h-80' />
+                  <div className=' bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-full shadow-lg absolute bottom-8 right-8 flex justify-center items-center'>
+                    <p className='text-white text-center font-bold text-lg'>Ghc <br /> {price}</p>
                   </div>
                 </div>
                 <div className='flex justify-around'>

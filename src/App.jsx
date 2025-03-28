@@ -13,6 +13,7 @@ import VendorAds from "./pages/dashboard/VendorAds";
 import Profile from "./pages/dashboard/Profile";
 import SingleVendorAdvert from "./pages/dashboard/SingleVendorAdvert";
 import EditAdvert from "./pages/dashboard/EditAdvert";
+import ToDoList from "./pages/dashboard/ToDoList";
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
             <Route path="create-ad" element={<CreateAd />} />
             <Route path="edit-ad/:id" element={<EditAdvert />} />
             <Route path="ads" element={<VendorAds/>} />
-            <Route path="ad/:id" element={<SingleVendorAdvert/>} />
+            <Route path="to-do" element={<ToDoList/>} />
+            <Route path="ads/:id" element={<SingleVendorAdvert/>} />
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
