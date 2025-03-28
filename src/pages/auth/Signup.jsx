@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
+import { apiSignup } from "../../services/auth";
 
 // const Signup = () => {
 //   const handleSubmit = async (data) => {
@@ -18,7 +19,7 @@ import { Link, useNavigate } from "react-router";
 export default function SignupPage() {
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
@@ -26,10 +27,17 @@ export default function SignupPage() {
     const username = form.username.value;
     const gender = form.gender.value;
     const email = form.email.value;
+    const role = form.role.value;
     const password = form.password.value;
-
+console.log(email)
     if (firstName && lastName && username && gender && email && password) {
-      navigate("/login");
+     const userData = {firstName , lastName , username , gender , email, role , password}
+      const response = await apiSignup (userData)
+      if (response.data) {
+      console.log(response.data);
+        navigate("/login");
+      
+      }
     } else {
       alert("Please fill all fields");
     }
@@ -97,8 +105,8 @@ export default function SignupPage() {
           className="w-full p-2 border rounded"
           required>
           <option value="">Select Role</option>
-              <option value="Vendor">Vendor</option>
-              <option value="User">User</option>
+              <option value="vendor">Vendor</option>
+              <option value="customer">Customer</option>
           </select>
            
           <input
@@ -124,7 +132,7 @@ export default function SignupPage() {
         </form>
         <Link to="/login" className=" flex justify-center mt-3 font-semibold">
           <p>
-            Already have an account:{" "}
+            Already have an account?{" "}
             <span className="text-blue-600 underline font-bold">Login</span>
           </p>
         </Link>

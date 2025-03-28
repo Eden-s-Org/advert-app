@@ -9,10 +9,10 @@ import { useLocation } from "react-router";
 export default function Adverts() {
   const [ads, setAds] = useState([]);
 
-  const fetchAds = async () => {
+  const getAds = async () => {
     try {
       const response = await apiGetAllAdverts();
-      // setAds(response.data);
+      setAds(response.data);
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ export default function Adverts() {
   };
 
   useEffect(() => {
-    fetchAds();
+    getAds();
   }, []);
 
   const location = useLocation();
@@ -54,7 +54,14 @@ export default function Adverts() {
                     Electronics
                   </h1>
                 </div>
-                <AdvertCard />
+                {ads.length > 0 && ads.map((advert) => {
+                  return (
+                    <AdvertCard 
+                    key={advert.id}
+                    advert = {advert}
+                    />
+                  )
+                })}
               </section>
 
               <section>

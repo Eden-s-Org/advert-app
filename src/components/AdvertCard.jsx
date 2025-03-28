@@ -11,7 +11,7 @@ import React from "react";
 import social from "../assets/images/social.png"
 import iphone from "../assets/images/iphone.png"
 
-const AdvertCard = () => {
+const AdvertCard = ({ advert }) => {
   
 
   return (
@@ -21,7 +21,7 @@ const AdvertCard = () => {
         <div className="flex items-start gap-4 mt-3">
           <img src={social} alt="social" className="rounded-full w-12 h-12 border-gray-300 p-1" />
           <div className="border-gray-300 p-2 rounded-lg shadow-sm">
-            <h1 className="font-bold text-lg">Product Title:</h1>
+            <h1 className="font-bold text-lg">{advert?.title}</h1>
             <div className="flex items-center text-gray-600 text-sm">
               <span>Just Now ·</span>
               <EarthIcon className="ml-1 w-4 h-4 text-gray-500" />
@@ -30,7 +30,7 @@ const AdvertCard = () => {
         </div>
 
         <div className="w-full h-64 sm:h-72 md:h-80 lg:h-96 flex justify-center items-center relative mt-4">
-          <img src={iphone} alt="Product" className="h-full object-cover rounded-lg shadow-md" />
+          <img src={`https://res.cloudinary.com/dkvumu6xd/image/upload/${advert?.media}/iqypzlepxsitjgp1bw8j.webp`} alt={advert?.title} className="h-full object-cover rounded-lg shadow-md" />
           <span className="absolute bottom-5 right-5 bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-full shadow-lg">
             GHC200
           </span>

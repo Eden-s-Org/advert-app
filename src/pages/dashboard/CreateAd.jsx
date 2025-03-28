@@ -61,7 +61,7 @@ const CreateAd = () => {
                     <ImagePlusIcon htmlFor='advertImage' size={20} strokeWidth={2} className='text-black' />
                     Add photo
                   </label>
-                  <input type="file" name="image" id="advertImage" className='' accept='image/*' required onChange={((event) => setImage(event.target.value))} />
+                  <input type="file" name="media" id="advertImage" className='' accept='image/*' required onChange={((event) => setImage(event.target.value))} />
                 </div>
 
                 <div className='border border-gray-500 py-2 px-2 rounded-md'>
@@ -69,7 +69,7 @@ const CreateAd = () => {
                     <YoutubeIcon htmlFor='advertVideo' size={24} strokeWidth={2} className='text-black' />
                     Add video
                   </label>
-                  <input type="file" name="image" id="advertVideo" title='Add video' accept='video/*' />
+                  <input type="file" name="media" id="advertVideo" title='Add video' accept='video/*' />
                 </div>
 
               </div>
