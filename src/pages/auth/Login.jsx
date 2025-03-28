@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { apiLogin } from '../../services/auth';
 
 export default function Login() {
@@ -53,6 +53,12 @@ export default function Login() {
             Login
           </button>
         </form>
+        <Link to="/signup" className=" flex justify-center mt-3 font-semibold">
+          <p>
+            Don't have an account?{" "}
+            <span className="text-blue-600 underline font-bold">Sign-Up</span>
+          </p>
+        </Link>
       </div>
     </div>
   );
