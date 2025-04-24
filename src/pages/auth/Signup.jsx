@@ -30,14 +30,15 @@ export default function SignupPage() {
     const role = form.role.value;
     const confirmPassword = form.confirmPassword.value;
     const password = form.password.value;
-    console.log(email)
     if (firstName && lastName && userName && gender && email && password && confirmPassword) {
      const userData = {firstName , lastName , userName , gender , email, role , password, confirmPassword}
       const response = await apiSignup (userData)
+      // localStorage.setItem("token", response.data.token);
+      // localStorage.setItem("role", response.data.user.role);
       if (response.data) {
       console.log(response.data);
         navigate("/login");
-      
+      alert(response.data.message)
       }
     } else {
       alert("Please fill all fields");
