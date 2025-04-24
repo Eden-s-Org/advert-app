@@ -47,9 +47,11 @@ const AdvertCard = ({ advert }) => {
             <Share2Icon className="text-gray-600 mx-auto w-6 h-6" />
             <p className="text-gray-500 text-sm">Share</p>
           </div>
-          <button className="px-4 py-2 bg-[#EEAA77] hover:bg-orange-400 text-white font-bold rounded-lg transition duration-300 shadow-md">
+          <a href="/adverts/:id">
+            <button className="px-4 py-2 bg-[#EEAA77] hover:bg-orange-400 text-white font-bold rounded-lg transition duration-300 shadow-md">
             View Details
           </button>
+          </a>
         </div>
       </div>
     </div>

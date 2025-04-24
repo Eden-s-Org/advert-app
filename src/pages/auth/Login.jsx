@@ -14,14 +14,15 @@ export default function LoginPage() {
         const userData = { email, password };
         const response = await apiLogin(userData);
 
-        localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.user.role);
 
         if (response.data.user.role === "customer") {
           navigate("/adverts");
         } else {
-          navigate("/vendor");
+          navigate("/dashboard");
         }
+
       } catch (error) {
         alert(
           "Login failed: " + (error.response?.data?.message || error.message)

@@ -20,13 +20,13 @@ const CreateAd = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-  try {
-    const response = await apiAddAdvert(formData); // Make sure this function exists
-    console.log("Advert posted successfully", response);
-    navigate("/dashboard/ads")
-  } catch (error) {
-    console.log("Error submitting advert:", error);
-  }
+    try {
+      const response = await apiAddAdvert(formData); // Make sure this function exists
+      console.log("Advert posted successfully", response);
+      navigate("/dashboard/ads")
+    } catch (error) {
+      console.log("Error submitting advert:", error);
+    }
   }
 
   // const handleFileUpload = () => {
@@ -41,12 +41,12 @@ const CreateAd = () => {
           {/* Post to section */}
           <div className='bg-white rounded-lg flex flex-col justify-center gap-y-3 mt-5 py-3'>
             <div className='w-[95%] mx-auto'>
-              <h1 className='font-bold '>Post to</h1>
+              <h1 className='font-bold '>Post</h1>
             </div>
 
             <div className=' w-[95%] mx-auto flex border p-2 rounded-md items-center'>
-              <div className='bg-gray-500 w-8 h-8 border rounded-full mr-2'></div>
-              <h1 className='font-bold '>Post to</h1>
+              <div className='bg-[#EEAA77] w-8 h-8 border rounded-full mr-2'></div>
+              <h1 className='font-bold '>Post to EdShop</h1>
             </div>
 
           </div>
@@ -57,7 +57,7 @@ const CreateAd = () => {
             <div className='bg-white rounded-lg flex flex-col justify-center gap-y-3 py-3'>
               <div className='w-[95%] mx-auto'>
                 <h1 className='font-bold '>Media</h1>
-                <p>Share photo or a video of your advert. EdAdvert App posts can't exceed 10 photos.</p>
+                <p>Share photo or a video of your advert. EdShop App posts can't exceed a photo.</p>
               </div>
 
               <div className=' w-[95%] mx-auto flex p-2 items-center gap-4'>
@@ -100,16 +100,16 @@ const CreateAd = () => {
                     <option value="services">Services</option>
                   </select>
                 </div>
-                <div className='w-[100%] mx-auto flex flex-col gap-2'>
-                  <label htmlFor="priceInput" className='font-semibold'>Price (cedis)</label>
-                  <input type="number" name="price" id="priceInput" placeholder='How much is it going for?' className='border border-gray-400 p-2 rounded-lg' title='Price' required onChange={((event) => setPrice(event.target.value))} />
-                </div>
 
                 <div className='flex flex-col gap-2'>
                   <label htmlFor='description' className='font-semibold'>
                     Description
                   </label>
                   <textarea type="text" name="description" id="description" required className='w-[100%] bg-white px-2 py-1 pb-15 border-1 border-gray-400 rounded-lg' placeholder='Type here!' title='Description' onChange={((event) => setDescription(event.target.value))} ></textarea>
+                </div>
+                <div className='w-[100%] mx-auto flex flex-col gap-2'>
+                  <label htmlFor="priceInput" className='font-semibold'>Price (cedis)</label>
+                  <input type="number" name="price" id="priceInput" placeholder='How much is it going for?' className='border border-gray-400 p-2 rounded-lg' title='Price' required onChange={((event) => setPrice(event.target.value))} />
                 </div>
 
                 <div className='flex gap-x-5'>
@@ -130,7 +130,7 @@ const CreateAd = () => {
 
             <div className='w-[79.5%] fixed bg-white rounded-md p-3 bottom-3 z-10 flex justify-end gap-x-3'>
               <button className=" bg-transparent  px-2 py-2 rounded-md text-black/70 text-center border border-gray-400 hover:bg-gray-200" disabled>Finish Later</button>
-              <button type="submit" className=" bg-[#424f74] hover:bg-blue-950 px-5 py-2 rounded-md text-white text-center font-bold cursor-pointer" >Publish to EdenAdverts</button>
+              <button type="" className=" bg-[#424f74] hover:bg-blue-950 px-5 py-2 rounded-md text-white text-center font-bold cursor-pointer" >Publish to Edshop</button>
             </div>
           </form>
 
@@ -171,7 +171,7 @@ const CreateAd = () => {
 
         {/* SideSection */}
         <section className='relative w-[40%] bg-gray-200 mr-4.5 mt-5.5 '>
-          <div className=' bg-gray-200 mt-4 w-90 scroll-auto'>
+          <div className=' bg-gray-200 mt-4 w-90'>
             <div className='flex justify-between mb-5'>
               <div className='flex border border-gray-400 bg-white p-2 rounded-md hover:bg-gray-300 cursor-default'>
                 <p>EdenAds Feed preview </p>
@@ -207,7 +207,7 @@ const CreateAd = () => {
                 </div>
 
                 <div className='w-[100%] bg-gray-500 relative '>
-              
+
                   <img src={image} alt="" className='w-[100%] h-80' />
                   <div className=' bg-gray-800 text-white text-lg font-bold py-2 px-4 rounded-full shadow-lg absolute bottom-8 right-8 flex justify-center items-center'>
                     <p className='text-white text-center font-bold text-lg'>Ghc <br /> {price}</p>

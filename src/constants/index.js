@@ -39,7 +39,3 @@ import { BookOpenCheck, ChartNoAxesCombined, FileIcon, Home, PlusIcon, Settings,
 },
     ],
   };
-
-  const test =() => {
-    
-  }
