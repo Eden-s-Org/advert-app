@@ -10,7 +10,6 @@ import {
 import React from "react";
 import social from "../assets/images/social.png"
 import iphone from "../assets/images/iphone.png"
-
 const AdvertCard = ({ advert }) => {
   
 
